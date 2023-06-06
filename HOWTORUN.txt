@@ -1,0 +1,68 @@
+How to run our license plate detection and recognition:
+
+
+1. Install the necessary requirements onto your machine using:
+
+pip install -r requirements.txt
+pip install -r requirement.txt
+
+
+
+*****************************************************************************************************************************************
+Testing our licesne plate detection and recognition implementation
+*****************************************************************************************************************************************
+
+1. Add a test image (licesne plate image) of your choice in the "Test Image" directory.
+
+2. run app.py
+
+Note: The model that performs the OCR is our trained CNN. 
+
+
+
+
+
+*****************************************************************************************************************************************
+Training and testing your own models
+*****************************************************************************************************************************************
+
+
+
+***Training your own license plate detection model***
+
+1. Run the jupyter notebook "Training.ipynb" with the modifications of your choice.
+
+
+
+
+
+***Training your own OCR model***
+
+1. (Skip this step for Neural Networks training) To train using the relevant features of your choice, access the "data_prep.py" script
+found in the "Preprocessing" folder. Modify the line (it appears twice in the code so modify both): "data.append([pixel_intensity(cropped_image), label])". Here, the feature chosen is
+pixel intensity. You can browse for more features in our "features.py" script in the "Preprocessing" folder. Run "data_prep.py" with the modifications done.
+
+2. Run the training script of the model of your choice found in the directory "Models Trained".
+
+
+
+
+
+***Testing the OCR models (testing the models on characters alone and not plates)***
+
+1. Test the models using the scripts in "ModelsTested". The input image must be located in the "Dataset/Segmented Images" path and should be an image of a single character as these
+models were trained on characters.
+
+
+
+
+
+***Testing the OCR models (testing the models on recognizing a plate's characters)***'
+
+1. Modify the "app.py" script and change "from ModelsTested.cnn_test import returnLicenseNB". Choose your model of choice by simply importing
+its test script. Run the "app.py" script. The input image should be a license plate and should be inserted into the "Test Image" folder.
+
+
+Note: Here, you would be detecting the license plate but performing OCR using your model of choice. With our final implementation, we
+went with CNN as our model performing OCR.
+
